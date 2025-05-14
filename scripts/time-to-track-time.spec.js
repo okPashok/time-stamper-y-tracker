@@ -32,8 +32,8 @@ script('Track time', async ({ page }) => {
         await page.locator('//div[text() = "Указать затраченное время"]').click();
         await page.locator('//input[contains(@id, "duration")]').fill(timeStr);
         await page.locator('//button/span[text() = "Сохранить"]').last().click();
-        await page.locator('//button[@aria-label="Закрыть"]').click();
+        await page.locator('//ul//button[@aria-label="Закрыть"]').click();
     }
 
-    console.log('The hours have been time tracked.');
+    console.log(`Time tracked for tasks (${issues.join(', ')}) - ${timeStr} each. Total: ${totalHours}`);
 });
